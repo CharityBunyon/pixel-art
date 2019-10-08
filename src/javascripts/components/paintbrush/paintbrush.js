@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import utils from '../../helpers/utilities';
 
 const colors = ['red', 'blue', 'green', 'yellow', 'pink', 'purple'];
@@ -16,4 +17,15 @@ const printColorPicker = () => {
   }
 };
 
-export default { printColorPicker };
+const paintPixel = (event) => {
+  // which button did I click on
+  const pixel = $(event.target);
+  const colorChoice = $('.color-choice:checked').val();
+  pixel.css('backgroundColor', colorChoice);
+};
+
+const attachEvents = () => {
+  $(document).on('click', 'td', paintPixel);
+};
+
+export default { printColorPicker, attachEvents };

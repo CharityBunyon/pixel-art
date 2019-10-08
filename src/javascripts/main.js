@@ -7,6 +7,7 @@ import 'bootstrap';
 const init = () => {
   grid.makeGrid();
   paintbrush.printColorPicker();
+  paintbrush.attachEvents();
 };
 
 init();
